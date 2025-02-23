@@ -7,19 +7,18 @@ test('Invalid POST Request', async ({ request }) => {
     const invalidObject = {
         name: '',
         data: {
-           year: null,
-           price: -200,
-           "CPU model": 123,
-           "Hard disk size": null
+            year: null,
+            price: -200,
+            "CPU model": 123,
+            "Hard disk size": null
         }
-     };
+    };
     const response = await request.post('objects', {
         data: invalidObject
     });
 
-    //Validate the status code - 400 Bad Request will usually be received 
-    // commented to overcome the build failure
-    //assertStatus(response, 400);
+    // Validate the status code - 400 Bad Request will usually be received 
+    // assertStatus(response, 400);
 });
 
 //To validate GET response with non-existing ID
@@ -41,12 +40,12 @@ test('Invalid PUT Request', async ({ request }) => {
     const objectData = {
         name: 'Mobile',
         data: {
-           year: 2025,
-           price: 200,
-           "CPU model": "Samsung",
-           "Hard disk size": "32 GB"
+            year: 2025,
+            price: 200,
+            "CPU model": "Samsung",
+            "Hard disk size": "32 GB"
         }
-     };
+    };
     const response = await request.put('objects/' + invalidId, {
         data: objectData
     });
@@ -56,7 +55,6 @@ test('Invalid PUT Request', async ({ request }) => {
 
     // Check if response contains expected message
     const getData = await response.json();
-    //expect(getData.error).toBe(`Oject with id=${invalidId} was not found.`);
     expect(getData.error).toBe(`The Object with id = ${invalidId} doesn't exist. Please provide an object id which exists or generate a new Object using POST request and capture the id of it to use it as part of PUT request after that.`);
 });
 
