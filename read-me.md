@@ -23,7 +23,14 @@ This project contains automated API tests for (https://restful-api.dev/) using P
     github workflow-true,
     install browsers-true
 - Install extension : Playwright Test for VSCode
+- Install faker : npm install @faker-js/faker --save-dev
+- Install luxon : npm install --save luxon
 
 # Execution
-Run All Tests: npx playwright test
-Run Tests via UI : npx playwright test --ui
+Go to Trminal > New Terminal and
+- for run all Tests: npx playwright test
+- for run individual Test: npx playwright test tests/api-crud-object.spec.js
+- for run Tests via UI : npx playwright test --ui
+execution results can be found at 'test-results'
+
+
